@@ -19,6 +19,7 @@ var (
 )
 
 // Transport is an interface describing what is required for a drpc connection.
+// Transport is a supertype of net.Conn.
 type Transport interface {
 	io.Reader
 	io.Writer
