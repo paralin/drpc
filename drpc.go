@@ -7,6 +7,7 @@ import (
 	"context"
 	"io"
 
+	"github.com/golang/protobuf/proto"
 	"github.com/zeebo/errs"
 )
 
@@ -27,7 +28,9 @@ type Transport interface {
 
 // Message is a protobuf message. It is expected to be used with an Encoding.
 // This exists so that one can use whatever protobuf library/runtime they want.
-type Message interface{}
+type Message interface {
+	proto.Message
+}
 
 // Conn represents a client connection to a server.
 type Conn interface {
